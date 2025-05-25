@@ -6,6 +6,11 @@ pipeline {
         REMOTE_HOST = 'ec2-user@56.155.45.174'
         REMOTE_APP_NAME = 'java-app'
     }
+      triggers {
+        // This is for GitHub webhook (not polling)
+        // Make sure the webhook is configured in GitHub repo settings
+        githubPush()
+    }
       stages {
         stage('Hello world') {
             steps {
